@@ -1,0 +1,15 @@
+.idea/
+**/target/
+**/logs/
+logs/
+*/classes/
+*.iml
+.classpath
+.project
+.settings
+.factorypath
+*/src/main/resources/application.properties
+META-INF/
+.vscode/
+*.DS_Store
+/data
