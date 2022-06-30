@@ -1,7 +1,5 @@
 package com.ryan.algorithm.linked;
 
-import com.ryan.datastructure.linked.SingleLinkedList;
-
 /**
  * @author ryanzou
  */
