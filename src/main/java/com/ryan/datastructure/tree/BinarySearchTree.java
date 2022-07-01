@@ -212,6 +212,63 @@ public class BinarySearchTree<E extends Comparable<E>> {
     }
 
 
+    /**
+     * 删除二分查找树的某个节点
+     *
+     * @param e
+     */
+    public void remove(E e) {
+        root = remove(root, e);
+    }
+
+    /**
+     * 删除node为跟树中的指定节点
+     *
+     * @param node 以node为跟的树删除元素e
+     * @param e
+     * @return 返回删除元素之后的新树
+     */
+    private Node remove(Node node, E e) {
+        if (node == null) {
+            return null;
+        }
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+        } else if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+        } else {
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size --;
+                return rightNode;
+            } else if (node.right == null)  {
+                Node leftNode = node.left;
+                node.left = null;
+                size --;
+                return leftNode;
+            } else {
+                Node minRightNode = getMinNode(node.right);
+                minRightNode.right = remove(node.right, minRightNode.e);
+                minRightNode.left = node.left;
+                node.left = node.right = null;
+                return minRightNode;
+            }
+        }
+        return node;
+    }
+
+    /**
+     * 获取一个树的最小节点
+     *
+     * @param node
+     * @return
+     */
+    private Node getMinNode(Node node) {
+        return node.left == null ? node : getMinNode(node);
+    }
+
+
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree();
         bst.addEle(7);
@@ -234,6 +291,9 @@ public class BinarySearchTree<E extends Comparable<E>> {
         bst.preOrderByStack();
         System.out.println("----------------广度优先遍历-----------------");
         bst.levelOrder();
+        System.out.println("----------------删除节点-----------------");
+        bst.remove(3);
+        bst.midOrder();
     }
 
 }
