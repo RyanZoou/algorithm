@@ -6,7 +6,7 @@ import java.util.Stack;
 /**
  * @author ryanzou
  */
-public class BinarySearchTree<E extends Comparable<E>> {
+public class BST<E extends Comparable<E>> {
 
     private class Node {
         public E e;
@@ -270,7 +270,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
 
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree();
+        BST bst = new BST();
         bst.addEle(7);
         bst.addEle(3);
         bst.addEle(10);
