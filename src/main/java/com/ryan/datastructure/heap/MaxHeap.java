@@ -66,6 +66,23 @@ public class MaxHeap<E extends Comparable<E>> {
         siftDown(index);
     }
 
+    public E findMax() {
+        if (data.size() == 0) {
+            throw new RuntimeException("this is a empty heap");
+        }
+        return data.get(0);
+    }
+
+    public E extractMax() {
+        if (data.isEmpty()) {
+            throw new RuntimeException("this is a empty heap");
+        }
+        swap(data, 0, data.size() - 1);
+        E max = data.remove(data.size() - 1);
+        siftDown(0);
+        return max;
+    }
+
     private void siftDown(int index) {
         int size = size();
         if (index >= size) {
@@ -78,7 +95,7 @@ public class MaxHeap<E extends Comparable<E>> {
         }
     }
 
-    public Integer extraMaxChildIndex(int index) {
+    private Integer extraMaxChildIndex(int index) {
         int leftIndex = leftChild(index);
         int rightIndex = rightChild(index);
 
