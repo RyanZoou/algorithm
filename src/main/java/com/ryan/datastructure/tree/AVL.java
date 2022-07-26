@@ -167,13 +167,13 @@ public class AVL<E extends Comparable<E>> {
      * <p>
      * 对节点n进行左旋操作，返回旋转厚的新的跟节点r
      * <p>
-     * n                                r
-     * /   \                            /   \
-     * T1    r        向左旋转（n）       n     a
-     * /  \       ---------->      / \   / \
-     * T2   a                      T1 T2 T3 T4
-     * / \
-     * T3 T4
+     *       n                                r
+     *     /   \                            /   \
+     *    T1    r        向左旋转（n）       n     a
+     *        /  \       ---------->      / \   / \
+     *       T2   a                      T1 T2 T3 T4
+     *           / \
+     *          T3 T4
      *
      * @param node
      * @return
@@ -195,12 +195,12 @@ public class AVL<E extends Comparable<E>> {
      * <p>
      * 对节点n进行右旋操作，返回旋转厚的新的跟节点r
      * <p>
-     * n                                l
-     * /   \                            /   \
-     * l    T4        向右旋转（n）       a     n
-     * /  \             ---------->      / \   / \
-     * a   T3                            T1 T2 T3 T4
-     * / \
+     *         n                                l
+     *       /   \                            /   \
+     *      l    T4        向右旋转（n）       a     n
+     *    /  \             ---------->      / \   / \
+     *   a   T3                            T1 T2 T3 T4
+     *  / \
      * T1 T2
      *
      * @param node
